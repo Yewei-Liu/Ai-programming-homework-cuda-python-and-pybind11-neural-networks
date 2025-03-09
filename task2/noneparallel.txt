@@ -1,0 +1,117 @@
+start: 0. detect GPU
+Number of GPUs available: 3
+GPU 0: NVIDIA GeForce RTX 4090
+GPU 1: NVIDIA GeForce RTX 4090
+GPU 2: NVIDIA GeForce RTX 4090
+end 0. detect GPU
+
+start: 1.load and preprocess MNIST
+train_data_num: 54000
+val_data_num:   6000
+test_data_num:  10000
+end:   1.load and preprocess MNIST
+
+start: 2.CNN Construction
+CNN(
+  (conv1_1): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (conv1_2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2_1): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1))
+  (conv2_2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv3_1): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (conv3_2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv4): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1))
+  (dropout): Dropout(p=0.5, inplace=False)
+  (fc1): Linear(in_features=256, out_features=128, bias=True)
+  (fc2): Linear(in_features=128, out_features=10, bias=True)
+)
+end:   2.CNN Construction
+
+start: 3.loss function and optimizer
+CrossEntropyLoss()
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0001
+    maximize: False
+    weight_decay: 0
+)
+end:   3.loss function and optimizer
+
+start: 4.training
+cuda
+epoch: 1  train loss: 0.82740  val loss:0.18387  train acc:0.71187  val acc:0.94567
+epoch: 2  train loss: 0.21127  val loss:0.10028  train acc:0.93485  val acc:0.97083
+epoch: 3  train loss: 0.14239  val loss:0.07972  train acc:0.95598  val acc:0.97700
+epoch: 4  train loss: 0.11363  val loss:0.06750  train acc:0.96513  val acc:0.97917
+epoch: 5  train loss: 0.09356  val loss:0.05918  train acc:0.97093  val acc:0.98517
+epoch: 6  train loss: 0.08293  val loss:0.06446  train acc:0.97443  val acc:0.98450
+epoch: 7  train loss: 0.07257  val loss:0.05235  train acc:0.97776  val acc:0.98550
+epoch: 8  train loss: 0.06551  val loss:0.05242  train acc:0.97919  val acc:0.98667
+epoch: 9  train loss: 0.06235  val loss:0.04663  train acc:0.98080  val acc:0.98700
+epoch: 10  train loss: 0.05652  val loss:0.04405  train acc:0.98246  val acc:0.98867
+epoch: 11  train loss: 0.05124  val loss:0.04454  train acc:0.98335  val acc:0.98867
+epoch: 12  train loss: 0.04850  val loss:0.04446  train acc:0.98515  val acc:0.98900
+epoch: 13  train loss: 0.04777  val loss:0.04071  train acc:0.98594  val acc:0.98817
+epoch: 14  train loss: 0.04486  val loss:0.04353  train acc:0.98630  val acc:0.98883
+epoch: 15  train loss: 0.03997  val loss:0.03877  train acc:0.98702  val acc:0.99050
+epoch: 16  train loss: 0.03822  val loss:0.03995  train acc:0.98791  val acc:0.98967
+epoch: 17  train loss: 0.03764  val loss:0.03603  train acc:0.98807  val acc:0.99083
+epoch: 18  train loss: 0.03598  val loss:0.03699  train acc:0.98870  val acc:0.99067
+epoch: 19  train loss: 0.03544  val loss:0.03695  train acc:0.98983  val acc:0.99017
+epoch: 20  train loss: 0.03386  val loss:0.03615  train acc:0.98931  val acc:0.99183
+epoch: 21  train loss: 0.03109  val loss:0.04124  train acc:0.99007  val acc:0.99050
+epoch: 22  train loss: 0.03096  val loss:0.03723  train acc:0.98994  val acc:0.99100
+epoch: 23  train loss: 0.02869  val loss:0.03276  train acc:0.99031  val acc:0.99150
+epoch: 24  train loss: 0.02923  val loss:0.03355  train acc:0.99104  val acc:0.99150
+epoch: 25  train loss: 0.02718  val loss:0.03521  train acc:0.99124  val acc:0.99167
+epoch: 26  train loss: 0.02798  val loss:0.03479  train acc:0.99104  val acc:0.99133
+epoch: 27  train loss: 0.02650  val loss:0.03493  train acc:0.99107  val acc:0.99133
+epoch: 28  train loss: 0.02474  val loss:0.03670  train acc:0.99176  val acc:0.99167
+epoch: 29  train loss: 0.02373  val loss:0.03314  train acc:0.99272  val acc:0.99217
+epoch: 30  train loss: 0.02379  val loss:0.03423  train acc:0.99231  val acc:0.99067
+epoch: 31  train loss: 0.02222  val loss:0.03837  train acc:0.99291  val acc:0.99050
+epoch: 32  train loss: 0.02375  val loss:0.03201  train acc:0.99200  val acc:0.99233
+epoch: 33  train loss: 0.02182  val loss:0.03408  train acc:0.99307  val acc:0.99117
+epoch: 34  train loss: 0.02118  val loss:0.03434  train acc:0.99298  val acc:0.99183
+epoch: 35  train loss: 0.02024  val loss:0.03716  train acc:0.99291  val acc:0.99183
+epoch: 36  train loss: 0.01984  val loss:0.03708  train acc:0.99359  val acc:0.99117
+epoch: 37  train loss: 0.02096  val loss:0.03325  train acc:0.99326  val acc:0.99233
+epoch: 38  train loss: 0.01879  val loss:0.03008  train acc:0.99396  val acc:0.99200
+epoch: 39  train loss: 0.01833  val loss:0.03208  train acc:0.99393  val acc:0.99267
+epoch: 40  train loss: 0.01863  val loss:0.03245  train acc:0.99385  val acc:0.99250
+epoch: 41  train loss: 0.01787  val loss:0.03411  train acc:0.99413  val acc:0.99217
+epoch: 42  train loss: 0.01802  val loss:0.03624  train acc:0.99420  val acc:0.99133
+epoch: 43  train loss: 0.01803  val loss:0.03693  train acc:0.99396  val acc:0.99233
+epoch: 44  train loss: 0.01605  val loss:0.03513  train acc:0.99452  val acc:0.99250
+epoch: 45  train loss: 0.01628  val loss:0.03222  train acc:0.99474  val acc:0.99200
+epoch: 46  train loss: 0.01721  val loss:0.03164  train acc:0.99450  val acc:0.99217
+epoch: 47  train loss: 0.01592  val loss:0.03468  train acc:0.99476  val acc:0.99217
+epoch: 48  train loss: 0.01643  val loss:0.03352  train acc:0.99474  val acc:0.99300
+epoch: 49  train loss: 0.01523  val loss:0.03215  train acc:0.99519  val acc:0.99233
+epoch: 50  train loss: 0.01474  val loss:0.03261  train acc:0.99481  val acc:0.99283
+training_time: 374.7s
+end:   4.training
+
+start: 5.test
+all tst acc: 0.9945999979972839
+0 tst acc: 0.9969387755102042
+1 tst acc: 0.9982378854625551
+2 tst acc: 0.997093023255814
+3 tst acc: 0.998019801980198
+4 tst acc: 0.9949083503054988
+5 tst acc: 0.9910313901345291
+6 tst acc: 0.9895615866388308
+7 tst acc: 0.9902723735408561
+8 tst acc: 0.9938398357289528
+9 tst acc: 0.9950445986124876
+end:   5.test
+
